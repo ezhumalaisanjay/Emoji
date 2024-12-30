@@ -1,0 +1,71 @@
+/* Main Font and Color Theme */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Titles */
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.sub-title {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+/* Button */
+.btn-dark {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+/* Section - Video Placeholder */
+.video-placeholder {
+    height: 200px;
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: 2px dashed #666;
+}
+
+/* Benefits Section */
+.benefits {
+    background-color: #f0f0f0;
+}
+
+.benefit-box {
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.benefit-box:hover {
+    border-color: #007bff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-title {
+    color: #007bff;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #f0f0f5;
+}
+
+footer p {
+    margin: 0;
+}

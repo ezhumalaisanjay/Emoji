@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Varshitha R | portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+      /* Global Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.advanced-footer {
+      background: linear-gradient(135deg, #4cad9b, #c6e2f6);/* Gradient background */
+  color: #fff;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  max-width: 50%;
+}
+
+.footer-content h3 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #ffffff;
+}
+
+.footer-content a {
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #1de9b6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icon {
+  color: #00e5ff;
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 50%;
+  background: #222;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-icon:hover {
+  background: #00e5ff;
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #ffffff;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-content {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    margin-top: 20px;
+  }
+}
+
+      #cardss {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(var(--numcardss), var(--cards-height));
+        gap: var(--cards-margin);
+        padding-bottom: calc(var(--numcardss) * var(--cards-top-offset));
+        margin-bottom: var(--cards-margin);
+      }
+
+      #cards-1 {
+        --index: 1;
+      }
+      #cards-2 {
+        --index: 2;
+      }
+      #cards-3 {
+        --index: 3;
+      }
+      #cards-4 {
+        --index: 4;
+      }
+
+      .cards {
+        position: sticky;
+        top: 0;
+        padding-top: calc(var(--index) * var(--cards-top-offset));
+      }
+
+      .cards-content > div {
+        grid-area: text;
+        width: 95%;
+        max-width: 800px;
+        place-self: center;
+        text-align: left;
+        display: grid;
+        gap: 1em;
+        place-items: start;
+      }
+
+      .cards-content > figure {
+        grid-area: img;
+        overflow: hidden;
+      }
+
+      .cards-content > figure > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.4em;
+      }
+
+      h1 {
+        font-weight: 300;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      h2 {
+        font-weight: bold;
+        font-size: 2.5rem;
+        font-family: "Cormorant Garamond", serif;
+        margin: 0;
+      }
+
+      p {
+        font-weight: 300;
+        line-height: 1.42;
+        font-size: 1.1rem;
+      }
+
+      /* Animation */
+      @supports (animation-timeline: works) {
+        @scroll-timeline cardss-element-scrolls-in-body {
+          source: selector(body);
+          scroll-offsets: selector(#cardss) start 1, selector(#cardss) start 0;
+          start: selector(#cardss) start 1;
+          end: selector(#cardss) start 0;
+          time-range: 4s;
+        }
+
+        .cards {
+          --index0: calc(var(--index) - 1);
+          --reverse-index: calc(var(--numcardss) - var(--index0));
+          --reverse-index0: calc(var(--reverse-index) - 1);
+        }
+
+        .cards-content {
+          transform-origin: 50% 0%;
+          will-change: transform;
+          --duration: calc(var(--reverse-index0) * 1s);
+          --delay: calc(var(--index0) * 1s);
+          animation: var(--duration) linear scale var(--delay) forwards;
+          animation-timeline: cardss-element-scrolls-in-body;
+        }
+
+        @keyframes scale {
+          to {
+            transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+          }
+        }
+      }
+      .x_wd_yellow_highlight_bold_05 {
+        background-image: url(./yellow_highlight_bold_05.svg);
+        background-position: center 60%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        white-space: nowrap;
+      }
+      h1 {
+        font-family: "Caveat";
+        font-size: 6rem;
+        font-weight: bold;
+      }
+      .x_wd_doodle {
+        display: block;
+        color: #714b67;
+        font-family: "Caveat";
+        font-size: calc(1.325rem + 0.9vw);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.1;
+        text-align: center;
+      }
+      h2 {
+        font-family: "Caveat";
+        font-size: 6rem;
+        font-weight: bold;
+      }
+      .x_wd_blue_highlight_01 {
+        background-image: url(./blue_highlight_01.svg);
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: contain;
+        white-space: nowrap;
+      }
+      .me-n10 {
+        margin-right: -12rem !important;
+      }
+      .mt-n3 {
+        margin-top: -1rem !important;
+      }
+      .text-center {
+        width: -47%; /* This should be corrected as it's invalid */
+        text-align: center;
+        background-size: cover;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 700px;
+        position: relative;
+        color: #fff;
+        padding-top: 190px;
+
+        /* Initial gradient background */
+        background: linear-gradient(135deg, #c6bbe4, #f4f4f4);
+
+        /* Animation setup */
+        animation: gradientChange 129s infinite;
+      }
+
+      /* Keyframes for gradient color transition */
+      @keyframes gradientChange {
+        0% {
+          background: linear-gradient(135deg, #4cad9b, #c6e2f6);
+        }
+        25% {
+          background: linear-gradient(135deg, #674688, #f8d0f5);
+        }
+        50% {
+          background: linear-gradient(135deg, #b14e45, #f9e7d0);
+        }
+        75% {
+          background: linear-gradient(135deg, hsl(48, 36%, 53%), #cce7f5);
+        }
+        100% {
+          background: linear-gradient(135deg, #e6e0f9, #8fdfbf);
+        }
+      }
+
+      .rotate-350 {
+        rotate: 350deg;
+      }
+      h5{
+        font-family: "Caveat";
+      }
+
+      .display-1 {
+        font-size: calc(1.625rem + 4.5vw);
+        font-weight: 300;
+        line-height: 1.2;
+      }
+      .x_wd [class*="display-3"],
+      .x_wd [class*="display-4"] {
+        line-height: 1;
+      }
+      
+      .partner-feature-col {
+    /* width: 26.3%; */
+    padding-right: 60px;
+}
+
+      @media (min-width: 1200px) {
+        .x_wd_doodle {
+          font-size: 2rem;
+        }
+        .d-lg-inline {
+          display: inline !important;
+        }
+        .x_wd [class*="display-3"] {
+          font-size: 4rem;
+          font-family: "Caveat";
+          font-weight: 700;
+        }
+        .h1,
+        h1 {
+          font-size: 2.5rem;
+        }
+        .display-1 {
+          font-size: 5rem;
+          font-weight: bold;
+        }
+        .x_wd [class*="display-1"] {
+          font-size: 6rem;
+        }
+        .x_wd [class*="display-1"] {
+          font-size: calc(1.725rem + 5.7vw);
+        }
+      }
+      .DynamoDB {
+        background: linear-gradient(
+          281deg,
+          rgb(29 102 132),
+          rgb(193 231 255) 98.17%
+        );
+
+        border-radius: 24px;
+        padding: 80px 60px !important;
+        border: solid 1px;
+      }
+      .x_wd_display_circle {
+        background-image: url(/circle.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+      .x_wd_display_underline {
+        background-image: url(/underline.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center bottom 10%;
+      }
+
+      /* Add your custom CSS styles here */
+      .split-text {
+        /* Example style; customize as needed */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .animated-image {
+        /* Add any animations or transitions you wish */
+        transition: transform 0.5s ease-in-out;
+      }
+      .motion-path-image {
+        animation: move 5s infinite alternate;
+      }
+      .rotate-3d-image {
+        animation: rotate 5s infinite linear;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotateY(0);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .partner-feature-row,
+      .product-feature-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 60px;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .partner-feature-heading {
+        font-family: poppins-regular;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        text-align: left;
+        color: #342d4f;
+        font-family: "Caveat";
+      }
+
+      p {
+        font-size: 18px;
+        font-family: poppins-regular;
+        line-height: 1.39;
+        text-align: left;
+        color: #302930;
+      }
+
+      .partner-feature-col {
+        width: 26.3%;
+        padding-right: 60px;
+      }
+
+      .partner-featur-icon {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Section -->
+    <main>
+      <!-- Hero Section -->
+      <section class="pt-5 pb-6 text-center">
+        <div class="container">
+          <h1 class="display-1">
+            Hi, I'm Varshitha R a 
+            <span class="x_wd_yellow_highlight_bold_05">Front-End Developer.</span>
+          </h1>
+          <h2 class="display-3 position-relative mb-5">
+            Building responsive, user-friendly web applications with modern 
+            <span class="x_wd_blue_highlight_01 position-relative"
+              >technologies.
+              <em
+                class="x_wd_doodle position-absolute top-100 end-0 d-none d-lg-inline rotate-350 o_rtl_flip mt-n3 me-n10"
+              >
+                <img
+                  src="https://odoocdn.com/openerp_website/static/src/img/graphics/arrow_doodle_1.svg"
+                  class="d-block mb-3"
+                  alt=""
+                  loading="lazy"
+                  style=""
+                />
+                <span
+                  data-oe-type="monetary"
+                  data-oe-expression="pricing.get('yearly_standard_discounted', 25)"
+                  ><span class="oe_currency_value">React, </span>&nbsp;</span
+                >
+                Next.js, <br />JavaScript
+              </em>
+            </span>
+          </h2>
+          <a href="#Projects-sec" class="btn btn-primary m-2"
+            >View My Projects<span class="d-none d-md-inline">Work</span></a
+          >
+         
+
+          <br /><br />
+        </div>
+      </section>
+
+      <div class="container mt-4">
+        <h2 class="display-2 mb-6">
+    <span class="x_wd_display_circle">About Me </span><br />
+          
+        </h2>
+
+        <p style="margin-bottom: 3rem;">
+         Front End Developer proficient in HTML, CSS, JavaScript, and React.js. Passionate about creating responsive and user- friendly web applications. Strong problem-solving skills and a keen eye for UI design. Efficiently will update the latest technology and inspirable versions. Skilled in utilizing popular framework likes React.JS proficient in learning and adapting to new languages with a passion for crafting visually appealing and intuitive user interfaces.
+        </p>
+
+        <div class="partner-feature-row">
+          <div class="partner-feature-col">
+            <div class="partner-featur-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0cc0ed" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+              
+            </div>
+            <h5 class="partner-feature-heading">Skills</h5>
+            <p class="partner-feature-desc">
+              HTML, CSS, JavaScript, Bootstrap,
+</p>
+          </div>
+          <div class="partner-feature-col">
+            <div class="partner-featur-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0cc0ed" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+            </div>
+            <h5 class="partner-feature-heading">Tools & Technologies</h5>
+            <p class="partner-feature-desc">
+
+ GitHub, GitLab, or Bitbucket aws, S3, DynamoDB, Codecommit, RestAPI
+ </p>
+          </div>
+          <div class="partner-feature-col">
+            <div class="partner-featur-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0cc0ed" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor-cog"><path d="M12 17v4"/><path d="m15.2 4.9-.9-.4"/><path d="m15.2 7.1-.9.4"/><path d="m16.9 3.2-.4-.9"/><path d="m16.9 8.8-.4.9"/><path d="m19.5 2.3-.4.9"/><path d="m19.5 9.7-.4-.9"/><path d="m21.7 4.5-.9.4"/><path d="m21.7 7.5-.9-.4"/><path d="M22 13v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="M8 21h8"/><circle cx="18" cy="6" r="3"/></svg>
+            </div>
+            <h5 class="partner-feature-heading"> Framework & libraries</h5>
+            <p class="partner-feature-desc">
+               jQuery, React, Vue, docusaurus, Tailwind, UI development 
+              </p>
+          </div>
+        </div>
+      </div>
+<div class="container mt-4" id="Projects-sec">
+       <h2 class="display-2 mb-6">
+        <span class="x_wd_display_circle">Projects</span><br />
+          
+        </h2> 
+        </div>
+
+      <ul id="cardss" style="padding: 10px">
+        <li class="cards" id="cards-1">
+          <section class="container mt-5 DynamoDB">
+            <div class="row d-flex align-items-center flex-column flex-md-row">
+              <div class="col-md-6 text-md-start">
+                <h1 class="display-3">
+                  Countries Explorer
+                </h1>
+                <p class="fs-4">
+                 The Countries Explorer is an interactive tool or platform designed to provide detailed information about countries worldwide, including their demographics, geography, economy, culture, and key statistics. It allows users to explore and compare data across multiple countries through search, maps, and visualizations.
+                </p>
+              </div>
+              <div class="col-md-6">
+              <a  style="
+    float: right;
+"
+        href="https://country-explorer-pearl.vercel.app/" 
+        class="btn btn-primary btn-lg" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        Explore Now
+      </a>
+              </div>
+            </div>
+          </section>
+        </li>
+
+        
+      </ul>
+
+
+      <footer class="advanced-footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <h3>Varshitha R</h3>
+      <p>Front-End Developer | AWS Serverless Enthusiast</p>
+      <p>Email: <a href="mailto:your.varshithar482@gmail.com">varshithar482@gmail.com</a></p>
+      <p>Phone: <a href="tel:+919629958813">+919629958813</a></p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/varshitha-r-b509342a2/" target="_blank" class="footer-icon linkedin">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/varshithar48" target="_blank" class="footer-icon github">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="" target="_blank" class="footer-icon twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2024 Your Name. All rights reserved.
+  </div>
+</footer>
+
+
+     
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
